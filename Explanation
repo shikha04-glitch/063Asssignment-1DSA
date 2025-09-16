@@ -1,64 +1,93 @@
-# *Weather Data System*
-
-## *Introduction*  
-This project is a *Weather Data Management System* built in C++.  
-It stores temperature records for different cities across multiple years using an *Abstract Data Type (ADT)* and a *2D array structure*.  
-The system supports operations like inserting, deleting, and retrieving records, handling sparse data, and performing row/column traversals along with complexity analysis.  
+# 🌦 Weather Data Management System (C++)
 
 ---
 
-## *WeatherRecord (ADT)*  
+## 1. Introduction
+This program is a *Weather Data Management System* implemented in *C++*.  
+It uses an *Abstract Data Type (ADT)* called WeatherRecord and a *2D array (vector of vectors)* structure to store temperature records for different cities across different years.
+
+The system allows the user to:
+- Insert, delete, retrieve, and display weather records  
+- Perform *row-major / column-major traversal*  
+- Handle *sparse data*  
+- Conduct *complexity analysis*  
+
+---
+
+## 2. WeatherRecord (ADT)
 The WeatherRecord structure represents a single weather entry.  
 
+It contains:
 - *date* → stores the date in DD/MM/YYYY format  
 - *city* → stores the city name  
 - *temperature* → stores the recorded temperature in °C  
 
-If no record exists, the *temperature = -9999* (sentinel value for missing data).  
+If no record exists, the temperature is set to **-9999** as a sentinel value to indicate missing data.  
 
 ---
 
-## *WeatherDataSystem (Class)*  
-The WeatherDataSystem class manages the entire dataset.  
+## 3. WeatherDataSystem (Class)
+The WeatherDataSystem class manages the whole data storage and operations.  
 
-*Private Members:*  
-- *numYears, numCities* → number of years and cities  
-- *years[]* → stores year values (e.g., "2023", "2024")  
-- *cityNames[]* → stores city names  
-- *records[][]* → 2D array (vector of vectors) where each cell holds a WeatherRecord  
+*Private members:*
+- numYears, numCities → number of years and cities in the dataset  
+- years[] → vector storing year values (e.g., "2022", "2023")  
+- cityNames[] → vector storing city names  
+- records[][] → a 2D array (vector of vectors) where each cell holds a WeatherRecord  
 
-*Helper Functions:*  
-- *getYearIndex(year)* → returns index of the given year  
-- *getCityIndex(city)* → returns index of the given city  
-
----
-
-## *Functionalities Provided*  
-
-1. *Insert Weather Record (ADT):* Insert record by date, city, and temperature.  
-2. *Delete Weather Record (ADT):* Delete a record for a given date and city.  
-3. *Retrieve Weather Record (ADT):* Retrieve weather details for a given city and year.  
-4. *Insert Temperature (2D Array):* Insert data using direct year and city input.  
-5. *Row-Major Traversal:* Display all records year by year.  
-6. *Column-Major Traversal:* Display all records city by city.  
-7. *Handle Sparse Data:* Show missing records (temperature = -9999).  
-8. *Complexity Analysis:* Display theoretical and actual *time/space complexities*.  
+*Helper functions:*
+- getYearIndex(year) → finds the index of a given year  
+- getCityIndex(city) → finds the index of a given city  
 
 ---
 
-## *Complexity Summary*  
+## 4. Functionalities Provided
+The program provides a *menu-driven interface* with the following options:  
 
-- *Time Complexity:*  
-  - Insert/Delete/Retrieve = *O(1)*  
-  - Row/Column Traversal = *O(years × cities)*  
+1. *Insert Weather Record (ADT)*  
+   - User enters a date, city, and temperature  
+   - The record is inserted into the correct year × city position  
 
-- *Space Complexity:*  
-  - Array size = *(years × cities) cells*  
+2. *Delete Weather Record (ADT)*  
+   - User enters a date and city  
+   - If a record exists, it is deleted (reset to default)  
+
+3. *Retrieve Weather Record (ADT)*  
+   - User enters a city and year  
+   - The system prints the stored date, city, and temperature  
+
+4. *Insert Temperature (2D Array)*  
+   - Insert records directly by specifying year, city, date, and temperature  
+
+5. *Row-Major Traversal*  
+   - Displays all stored records row by row (year-wise first)  
+
+6. *Column-Major Traversal*  
+   - Displays all stored records column by column (city-wise first)  
+
+7. *Handle Sparse Data*  
+   - Prints all positions where data is missing (temperature = -9999)  
+
+8. *Complexity Analysis*  
+   - Theoretical and actual time/space complexities are shown  
+   - Insert/Delete/Retrieve → *O(1)*  
+   - Traversals → *O(years × cities)*  
+   - Storage → *O(years × cities)*  
 
 ---
 
-## *How to Run*  
+## 5. Complexity Summary
+*Time Complexity:*  
+- Insert/Delete/Retrieve = *O(1)*  
+- Row/Column Traversal = *O(years × cities)*  
 
-1. *Compile the program*  
-   ```bash
-   g++ weather_system.cpp -o weather_system
+*Space Complexity:*  
+- Array size = *(years × cities) cells*  
+
+---
+
+## 6. Conclusion
+This program demonstrates how an *ADT* and *2D array storage* can be used together to efficiently manage weather data.  
+It provides complete operations for *insertion, deletion, retrieval, and traversal* while also handling *sparse data* and analyzing *time/space complexity*.  
+
+---
